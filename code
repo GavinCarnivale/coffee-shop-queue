@@ -1,0 +1,13 @@
+class customers:
+    def __init__(self, name, order):
+        self.name = name
+        self.order = order
+
+customer1 = customers
+print ("what is your name")
+customer1.name = input()
+print ("what is your order")
+customer1.order = input()
+queue = []
+queue.append(customer1.name, customer1.order)
+print(queue[0])  
