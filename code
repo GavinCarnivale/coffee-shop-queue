@@ -2,12 +2,26 @@ class customers:
     def __init__(self, name, order):
         self.name = name
         self.order = order
-
-customer1 = customers
-print ("what is your name")
-customer1.name = input()
-print ("what is your order")
-customer1.order = input()
 queue = []
-queue.append(customer1.name, customer1.order)
-print(queue[0])  
+while True:
+    while True:
+        print("would you like to make an order[1] or view the queue [2]")
+        choice1 = input().strip().upper()
+        if choice1 == '1':
+            break
+        elif choice1 == '2':
+            if queue.size() >= 1:
+                print(queue)
+            else:
+                print("queue is empty")
+        else:
+            print("invalid input")
+            continue            
+
+    customer1 = customers
+    print ("what is your name")
+    customer1.name = input()
+    print ("what is your order")
+    customer1.order = input()
+    queue.append({customer1.name, customer1.order})
+    print(queue.pop(0))  
