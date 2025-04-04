@@ -1,60 +1,65 @@
-class customers:
-    def __init__(self, name, order):
-        self.name = name
-        self.order = order
-queue = []
+from collections import deque
+
+queue = [] #creating the queue
+
 while True:
     while True:
         print("would you like to make an order[1] view the queue [2] or complete the next order [3]")
         choice1 = input().strip().upper()
-        if choice1 == '1':
+        if choice1 == '1':   #make a order
             break
-        elif choice1 == '2':
-            if queue.size() >= 1:
+        elif choice1 == '2':  # View the queue 
+            if queue:
+                print("\nCurrent Orders in Queue:")
                 print(queue)
             else:
                 print("queue is empty")
-        elif choice1 == '3':
-            print(f"{queue.pop(0)} your {queue.pop(0)} is ready")  
+        elif choice1 == '3':         # send out the next order
+            if queue: 
+                print(f"{queue.pop(0)}, your {queue.pop(0)} is ready")
+            else:
+                print("queue is empty")
         else:
             print("invalid input")
             continue            
 
-    customer1 = customers
-    print ("what is your name")
-    customer1.name = input()
-    print ("what is your order (please enter the number next to the options on the menu)")
-    print ("""
+    print("what is your name")  # taking in user name
+    name = input().strip()
+
+    print("what is your order (please enter the number next to the options on the menu)")   #coffee menu
+    print("""
     
-    1 Regular Coffee        2 Flat White              3 Iced Coffee
+    1 Regular Coffee        2 Flat White              3 Iced Coffee   
 
     4 latte                 5 Irish coffee            6 Black coffee
 
-    7 Espresso              8 Cappuccino               9 Mocha
+    7 Espresso              8 Cappuccino              9 Mocha
 
     """)
-    choice2 = input().strip()
-    if choice2 == '1':
-        customer1.order = "Reugalr coffee"
-    elif choice2 == '2':
-        customer1.order = "Flat White"
-    elif choice2 == '3':
-        customer1.order = "Iced Coffee"
-    elif choice2 == '4':
-        customer1.order = "Latte"
-    elif choice2 == '5':
-        customer1.order = "Irish Coffee"
-    elif choice2 == '6':
-        customer1.order = "Black Coffee"
-    elif choice2 == '7':
-        customer1.order = " Espresso"
-    elif choice2 == '8':
-        customer1.order = "Capuccino"
-    elif choice2 == '9':
-        customer1.order = "Mocha"
-    queue.append(customer1.name)
-    queue.append(customer1.order)
-    queue.append({customer1.name, customer1.order})
-    
-    
 
+    choice2 = input().strip()   #adding user input to queue
+    if choice2 == '1':
+        order = "Regular coffee"
+    elif choice2 == '2':
+        order = "Flat White"
+    elif choice2 == '3':
+        order = "Iced Coffee"
+    elif choice2 == '4':
+        order = "Latte"
+    elif choice2 == '5':
+        order = "Irish Coffee"
+    elif choice2 == '6':
+        order = "Black Coffee"
+    elif choice2 == '7':
+        order = "Espresso"
+    elif choice2 == '8':
+        order = "Cappuccino"
+    elif choice2 == '9':
+        order = "Mocha"
+    else:
+        print("Invalid selection. Try again.")
+        continue  #loop of invalid input
+    queue.append(name) 
+    queue.append(order)  #add to queue
+
+    
