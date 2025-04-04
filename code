@@ -1,5 +1,3 @@
-from collections import deque
-
 queue = [] #creating the queue
 
 while True:
@@ -25,9 +23,9 @@ while True:
 
     print("what is your name")  # taking in user name
     name = input().strip()
-
-    print("what is your order (please enter the number next to the options on the menu)")   #coffee menu
-    print("""
+    while True:
+        print("what is your order (please enter the number next to the options on the menu)")   #coffee menu
+        print("""
     
     1 Regular Coffee        2 Flat White              3 Iced Coffee   
 
@@ -37,29 +35,37 @@ while True:
 
     """)
 
-    choice2 = input().strip()   #adding user input to queue
-    if choice2 == '1':
-        order = "Regular coffee"
-    elif choice2 == '2':
-        order = "Flat White"
-    elif choice2 == '3':
-        order = "Iced Coffee"
-    elif choice2 == '4':
-        order = "Latte"
-    elif choice2 == '5':
-        order = "Irish Coffee"
-    elif choice2 == '6':
-        order = "Black Coffee"
-    elif choice2 == '7':
-        order = "Espresso"
-    elif choice2 == '8':
-        order = "Cappuccino"
-    elif choice2 == '9':
-        order = "Mocha"
-    else:
-        print("Invalid selection. Try again.")
-        continue  #loop of invalid input
+        choice2 = input().strip()   #adding user input to queue
+        if choice2 == '1':
+            order = "Regular coffee"
+            break
+        elif choice2 == '2':
+            order = "Flat White"
+            break
+        elif choice2 == '3':
+            order = "Iced Coffee"
+            break
+        elif choice2 == '4':
+            order = "Latte"
+            break
+        elif choice2 == '5':
+            order = "Irish Coffee"
+            break
+        elif choice2 == '6':
+            order = "Black Coffee"
+            break
+        elif choice2 == '7':
+            order = "Espresso"
+            break
+        elif choice2 == '8':
+            order = "Cappuccino"
+            break
+        elif choice2 == '9':
+            order = "Mocha"
+            break
+        else:
+            print("Invalid selection. Try again.")
+            continue  #loop of invalid input
     queue.append(name) 
     queue.append(order)  #add to queue
 
-    
